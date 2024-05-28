@@ -3,105 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yönlendirme</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #008AFF;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            background-color: #fff;
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
-            position: relative;
-        }
-        .profile-img {
-            position: absolute;
-            top: -50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            overflow: hidden;
-        }
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .loading-spinner {
-            border: 8px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #008AFF;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
-        .countdown {
-            font-size: 3rem;
-            margin-bottom: -1rem;
-            color: #008AFF;
-            font-weight: bold;
-        }
-        .link {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            background-color: #008AFF;
-            padding: 12px 30px;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        .link:hover {
-            background-color: #0056b3;
-        }
-        p {
-            margin-top: 2rem;
-            color: #666;
-            font-size: 1.1rem;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+    <title>Benimle Çıkar Mısın?</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   
 </head>
 <body>
-    <div class="container">
-        <div class="profile-img">
-        </div>
-        <div class="loading-spinner"></div>
-        <div class="countdown" id="countdown">5</div>
-        <div class="button-container">
-            <p>Yazılım ve grafik tasarım hizmetim için yönlendirileceksiniz.<br></p>
-            <a href="https://linktr.ee/kalipsotrcreative" class="link">Hemen Git</a>
-        </div>
-        <script>
-            function countdown() {
-                var seconds = 5;
-                var countdownElement = document.getElementById('countdown');
-                var interval = setInterval(function() {
-                    seconds--;
-                    countdownElement.textContent = seconds;
-                    if (seconds <= 0) {
-                        clearInterval(interval);
-                        window.location.href = "https://linktr.ee/kalipsotrcreative";
-                    }
-                }, 1000);
-            }
-            countdown();
-        </script>
+    
+    <div class="contanier">
+    <div class="square">
+        <h1 class="title">Benimle Çıkar mısın?</h1>
     </div>
-</body>
+       
+    <div class="buttons">
+            <button class="btnYes" role="button" id="yesButton">EVET</button>
+            <button class="btnNo btn" role="button" id="noButton">HAYIR</button>
+        </div>
+    
+    </div> 
+        
+       <!-- Coding By AzadCoder - ig: @azadcoderr -->
+
+       <footer>
+        <a href="http://instagram.com/kodlama.dili" target="_blank" rel="noopener noreferrer" title="kodlama.dili"><i class="fab fa-instagram"></i> Instagram</a>
+    </footer>
+</body> 
+<script src="script.js"></script>
 </html>
