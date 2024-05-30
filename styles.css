@@ -62,14 +62,24 @@ body {
     border-bottom: 6px solid #146d07;
 }
 
+.card.ziraat {
+    border-top: 6px solid #d30b11;
+    border-bottom: 6px solid #d30b11;
+}
+
 .card.papara {
     border-top: 6px solid #952a8a;
     border-bottom: 6px solid #952a8a;
 }
 
-.card.ziraat {
-    border-top: 6px solid #d30b11;
-    border-bottom: 6px solid #d30b11;
+.card.ininal {
+    border-top: 6px solid #1d1b18;
+    border-bottom: 6px solid #1d1b18;
+}
+
+.card.binance {
+    border-top: 6px solid #f0b90b;
+    border-bottom: 6px solid #f0b90b;
 }
 
 .card.akbank button {
@@ -88,12 +98,20 @@ body {
     background-color: #146d07;
 }
 
+.card.ziraat button {
+    background-color: #d30b11;
+}
+
 .card.papara button {
     background: linear-gradient(to right, #d3445f, #952a8a);
 }
 
-.card.ziraat button {
-    background-color: #d30b11;
+.card.ininal button {
+    background: linear-gradient(to right, #1d1b18, #1d1b18);
+}
+
+.card.binance button {
+    background-color: #f0b90b;
 }
 
 #popup {
