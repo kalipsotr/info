@@ -1,0 +1,127 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin: 20px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card img.logo {
+    max-width: 120px;
+    margin-bottom: 15px;
+}
+
+.card button {
+    background-color: #e01b22; /* Default button color */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.card.akbank {
+    border-top: 6px solid #e01b22;
+    border-bottom: 6px solid #e01b22;
+}
+
+.card.denizbank {
+    border-top: 6px solid #004c91;
+    border-bottom: 6px solid #004c91;
+}
+
+.card.enpara {
+    border-top: 6px solid #a955a0;
+    border-bottom: 6px solid #a955a0;
+}
+
+.card.garanti {
+    border-top: 6px solid #146d07;
+    border-bottom: 6px solid #146d07;
+}
+
+.card.papara {
+    border-top: 6px solid #952a8a;
+    border-bottom: 6px solid #952a8a;
+}
+
+.card.ziraat {
+    border-top: 6px solid #d30b11;
+    border-bottom: 6px solid #d30b11;
+}
+
+.card.akbank button {
+    background-color: #e01b22;
+}
+
+.card.denizbank button {
+    background-color: #004c91;
+}
+
+.card.enpara button {
+    background-color: #a955a0;
+}
+
+.card.garanti button {
+    background-color: #146d07;
+}
+
+.card.papara button {
+    background: linear-gradient(to right, #d3445f, #952a8a);
+}
+
+.card.ziraat button {
+    background-color: #d30b11;
+}
+
+#popup {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#popup.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}

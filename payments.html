@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banka Bilgileri</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="card akbank">
+        <img src="https://i.hizliresim.com/md27dug.png" alt="Akbank Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 0364637</p>
+        <p>Şube: Düzce - 83</p>
+        <p>IBAN: <span id="akbankIban">TR89 0004 6000 8388 8000 3646 37</span></p>
+        <button onclick="copyToClipboard('akbankIban')">KOPYALA</button>
+    </div>
+    <div class="card denizbank">
+        <img src="https://i.hizliresim.com/hyhqkti.png" alt="Denizbank Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 93465894</p>
+        <p>Şube: Düzce/Merkez - 81000</p>
+        <p>IBAN: <span id="denizbankIban">TR54 0013 4000 0223 9092 3000 01</span></p>
+        <button onclick="copyToClipboard('denizbankIban')">KOPYALA</button>
+    </div>
+    <div class="card enpara">
+        <img src="https://i.hizliresim.com/hva2hn1.png" alt="Enpara Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 93465894</p>
+        <p>Şube: WEB - 3663</p>
+        <p>IBAN: <span id="enparaIban">TR61 0011 1000 0000 0093 4658 94</span></p>
+        <button onclick="copyToClipboard('enparaIban')">KOPYALA</button>
+    </div>
+    <div class="card garanti">
+        <img src="https://i.hizliresim.com/68mh1oj.png" alt="Garanti Bankası Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 93465894</p>
+        <p>Şube: GARANTİ - 3663</p>
+        <p>IBAN: <span id="garantiIban">TR21 0006 2000 5220 0006 6017 84</span></p>
+        <button onclick="copyToClipboard('garantiIban')">KOPYALA</button>
+    </div>
+    <div class="card papara">
+        <img src="https://i.hizliresim.com/q58q1nr.png" alt="Papara Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 5477334740</p>
+        <p>Şube: PAPARA</p>
+        <p>NO: <span id="paparaIban">5477334740</span></p>
+        <button onclick="copyToClipboard('paparaIban')">KOPYALA</button>
+    </div>
+    <div class="card ziraat">
+        <img src="https://i.hizliresim.com/d3qf1ik.png" alt="Ziraat Bankası Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 93465894</p>
+        <p>Şube: Düzce/Merkez - 81000</p>
+        <p>IBAN: <span id="ziraatIban">TR84 0001 0090 1004 3081 4050 01</span></p>
+        <button onclick="copyToClipboard('ziraatIban')">KOPYALA</button>
+    </div>
+    <div id="popup" class="popup">Kopyalandı, bizimle çalıştığınız için teşekkür ederiz 😇</div>
+    <script src="script.js"></script>
+</body>
+</html>
