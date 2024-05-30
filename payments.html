@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banka Bilgileri</title>
+    <title>kalipsotr - Ödeme Yöntemleri</title>
     <link rel="stylesheet" href="styles.css">
+      <link rel="icon" type="image/png" href="https://i.hizliresim.com/t1t6fbq.png">
 </head>
 <body>
     <div class="card akbank">
@@ -43,15 +44,6 @@
         <p>IBAN: <span id="garantiIban">TR21 0006 2000 5220 0006 6017 84</span></p>
         <button onclick="copyToClipboard('garantiIban')">KOPYALA</button>
     </div>
-    <div class="card papara">
-        <img src="https://i.hizliresim.com/2dahg6a.png" alt="Papara Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 5477334740</p>
-        <p>Şube: PAPARA</p>
-        <p>NO: <span id="paparaIban">5477334740</span></p>
-        <button onclick="copyToClipboard('paparaIban')">KOPYALA</button>
-    </div>
     <div class="card ziraat">
         <img src="https://i.hizliresim.com/5t1m0pt.png" alt="Ziraat Bankası Logo" class="logo">
         <p><strong>ENES KOCA</strong></p>
@@ -60,6 +52,33 @@
         <p>Şube: Düzce/Merkez - 81000</p>
         <p>IBAN: <span id="ziraatIban">TR84 0001 0090 1004 3081 4050 01</span></p>
         <button onclick="copyToClipboard('ziraatIban')">KOPYALA</button>
+    </div>
+      <div class="card papara">
+        <img src="https://i.hizliresim.com/2dahg6a.png" alt="Papara Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: 5477334740</p>
+        <p>Şube: PAPARA</p>
+        <p>NO: <span id="paparaIban">5477334740</span></p>
+        <button onclick="copyToClipboard('paparaIban')">KOPYALA</button>
+    </div>
+      <div class="card ininal">
+        <img src="https://i.hizliresim.com/9vbfcun.png" alt="ininal Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: Yakında...</p>
+        <p>Şube: Düzce</p>
+        <p>NO: <span id="ininalIban">Yakında...</span></p>
+        <button onclick="copyToClipboard('ininalIban')">KOPYALA</button>
+    </div>
+        <div class="card binance">
+        <img src="https://i.hizliresim.com/hs3wpkp.png" alt="binance Logo" class="logo">
+        <p><strong>ENES KOCA</strong></p>
+        <p>Para Birimi: TL</p>
+        <p>Hesap No: Yakında...</p>
+        <p>Şube: Düzce</p>
+        <p>NO: <span id="binanceIban">Yakında...</span></p>
+        <button onclick="copyToClipboard('binanceIban')">KOPYALA</button>
     </div>
     <div id="popup" class="popup">Kopyalandı, bizimle çalıştığınız için teşekkür ederiz 😇</div>
     <script src="script.js"></script>
