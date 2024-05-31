@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hareketli Banner Tasarım Formu</title>
+    <link rel="stylesheet" href="styles3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="https://i.hizliresim.com/19mcqa7.png" alt="Logo">
+        </div>
+        <h1>🌟 Hareketli Banner Tasarım Hizmeti 🌟</h1>
+        <p>Hareketli banner tasarım hizmetimizi tercih ettiğiniz için teşekkür ederiz! Tasarım işlemlerinizi başlatmak için aşağıdaki bilgileri doldurmanızı rica ediyoruz. Doğru ve eksiksiz bilgi sağlamanız, tasarımın daha kusursuz bir şekilde tamamlanması açısından büyük önem taşımaktadır.</p>
+        <form id="designForm" action="submit_form.php" method="post" enctype="multipart/form-data">
+            <div class="input-group">
+                <label for="bannerText">📝 Bannerde görmek istediğiniz metin:</label>
+                <textarea id="bannerText" name="bannerText" rows="4" required></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="bannerSize">🖼️ Banner boyutu (standart 728x90):</label>
+                <input type="text" id="bannerSize" name="bannerSize" value="728x90" required>
+            </div>
+
+            <div class="input-group color-group">
+                <label for="textColor">🌈 Metin rengi tercihiniz (varsa):</label>
+                <input type="color" id="textColor" name="textColor">
+            </div>
+
+            <div class="input-group color-group">
+                <label for="backgroundColor">🌌 Arka plan rengi tercihiniz (varsa):</label>
+                <input type="color" id="backgroundColor" name="backgroundColor">
+            </div>
+
+            <div class="input-group">
+                <label for="services">📢 Hizmetleriniz (varsa):</label>
+                <textarea id="services" name="services" rows="2"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="membershipType">💼 Üyelik türünüz:</label>
+                <select id="membershipType" name="membershipType" required>
+                    <option value="Normal">Normal</option>
+                    <option value="Silver">Silver</option>
+                    <option value="Gold">Gold</option>
+                    <option value="Platin">Platin</option>
+                    <option value="Kurumsal">Kurumsal</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="additionalDetails">🔗 Eklemek istediğiniz diğer detaylar (varsa):</label>
+                <textarea id="additionalDetails" name="additionalDetails" rows="2"></textarea>
+            </div>
+
+            <div class="input-group">
+                <label for="username">👤 R10 kullanıcı adınız (üyeliğiniz varsa):</label>
+                <input type="text" id="username" name="username">
+            </div>
+
+            <div class="input-group">
+                <label for="logo">🎨 Lütfen var ise logonuzu ek olarak yükleyin:</label>
+                <input type="file" id="logo" name="logo">
+            </div>
+
+            <button type="submit">Gönder</button>
+        </form>
+
+        <p>🎨 Tasarım çalışmanız, ödeme işlemi tamamlandıktan sonra 1-5 iş günü içinde tamamlanacak ve tüm proje dosyaları sizinle paylaşılacaktır.</p>
+        <p>💰 Hareketli banner tasarım ücreti: 600₺'dir. (Belirtilen fiyat, R10 kuralları uyarınca belirlenen taban fiyattır.) (Tüm fiyatlarımıza revizyon işlemi dahildir.)</p>
+        <p>👀 Diğer hareketli banner tasarımlarımızı incelemek ve müşteri görüşlerini okumak için lütfen <a href="https://bit.ly/kalipsotr" target="_blank">buraya</a> göz atın.</p>
+        <p>💳 Ödeme ve hesap bilgileri için lütfen <a href="https://bit.ly/kalipsotrodeme" target="_blank">burayı</a> ziyaret edin.</p>
+        <p>🙌 Müşteri memnuniyeti bizim önceliğimizdir. Herhangi bir sorunuz, öneriniz veya düşünceniz varsa, lütfen bizimle paylaşmaktan çekinmeyin. Sizleri memnun etmek için buradayız! 🌟</p>
+    </div>
+    <script src="script3.js"></script>
+</body>
+</html>
