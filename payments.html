@@ -3,84 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>kalipsotr - Ödeme Yöntemleri</title>
-    <link rel="stylesheet" href="styles.css">
-      <link rel="icon" type="image/png" href="https://i.hizliresim.com/t1t6fbq.png">
+    <title>Banka Bilgi Kartları</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --card-width: 340px;
+            --card-height: 500px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(76, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255, 0, 128, 0.15) 0%, transparent 40%);
+            filter: blur(60px);
+            z-index: -1;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(var(--card-width), 1fr));
+            gap: 40px;
+            max-width: 1600px;
+            width: 100%;
+            perspective: 1000px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            height: var(--card-height);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            transform-style: preserve-3d;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1) 0%, transparent 80%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 35px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .logo {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            margin-bottom: 30px;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1), filter 0.5s ease;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.1));
+        }
+
+        .card:hover .logo {
+            transform: scale(1.15) translateZ(30px);
+            filter: drop-shadow(0 15px 15px rgba(0,0,0,0.2));
+        }
+
+        .bank-name {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            background-image: linear-gradient(45deg, #fff, #ddd);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            transition: all 0.3s ease;
+            transform: translateZ(20px);
+        }
+
+        .card:hover .bank-name {
+            letter-spacing: 2px;
+            transform: translateZ(40px);
+        }
+
+        .info {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1em;
+            line-height: 1.8;
+            flex-grow: 1;
+            color: #ddd;
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transform: translateZ(10px);
+        }
+
+        .card:hover .info {
+            transform: translateZ(30px);
+        }
+
+        .copy-btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+            outline: none;
+            width: 90%;
+            max-width: 250px;
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transform: translateZ(20px);
+        }
+
+        .copy-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), rgba(255,255,255,0.3));
+            transform: translateX(-100%) rotate(45deg);
+            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .copy-btn:hover::before {
+            transform: translateX(100%) rotate(45deg);
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-5px) translateZ(40px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .copy-btn:active {
+            transform: translateY(0) translateZ(20px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(76, 175, 80, 0.9);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-size: 1.3em;
+            font-weight: 500;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup.show {
+            opacity: 1;
+            visibility: visible;
+            animation: popupAnimation 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        @keyframes popupAnimation {
+            0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+            50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+            100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                height: auto;
+                min-height: var(--card-height);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .card {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .card:nth-child(2) {
+            animation-delay: -1s;
+        }
+
+        .card:nth-child(3) {
+            animation-delay: -2s;
+        }
+
+        .card:nth-child(4) {
+            animation-delay: -3s;
+        }
+
+        .card:nth-child(5) {
+            animation-delay: -4s;
+        }
+
+        .card:nth-child(6) {
+            animation-delay: -5s;
+        }
+    </style>
 </head>
 <body>
-    <div class="card akbank">
-        <img src="https://i.hizliresim.com/64peltt.png" alt="Akbank Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 0364637</p>
-        <p>Şube: Düzce - 83</p>
-        <p>IBAN: <span id="akbankIban">Geçersiz</span></p>
-        <button onclick="copyToClipboard('akbankIban')">KOPYALA</button>
+    <div class="background"></div>
+    <div class="container">
+        <div class="card">
+            <img src="https://i.hizliresim.com/md27dug.png" alt="Akbank Logo" class="logo">
+            <h2 class="bank-name" style="background-image: linear-gradient(45deg, #e01b22, #ff6b6b);">Akbank</h2>
+            <div class="info">
+                <p><strong>ENES KOCA</strong></p>
+                <p>Para Birimi: TL</p>
+                <p>Hesap No: 0364637</p>
+                <p>Şube: Düzce - 83</p>
+                <p>IBAN: TR89 0004 6000 8388 8000 3646 37</p>
+            </div>
+            <button class="copy-btn" style="background-color: #e01b22;" data-clipboard="TR89 0004 6000 8388 8000 3646 37">KOPYALA</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.hizliresim.com/hyhqkti.png" alt="Denizbank Logo" class="logo">
+            <h2 class="bank-name" style="background-image: linear-gradient(45deg, #004c91, #0077be);">Denizbank</h2>
+            <div class="info">
+                <p><strong>ENES KOCA</strong></p>
+                <p>Para Birimi: TL</p>
+                <p>Hesap No: 93465894</p>
+                <p>Şube: Düzce/Merkez - 81000</p>
+                <p>IBAN: TR54 0013 4000 0223 9092 3000 01</p>
+            </div>
+            <button class="copy-btn" style="background-color: #ce163a;" data-clipboard="TR54 0013 4000 0223 9092 3000 01">KOPYALA</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.hizliresim.com/hva2hn1.png" alt="Enpara Logo" class="logo">
+            <h2 class="bank-name" style="background-image: linear-gradient(45deg, #f89c1c, #a955a0, #00adee, #98c93c);">Enpara</h2>
+            <div class="info">
+                <p><strong>ENES KOCA</strong></p>
+                <p>Para Birimi: TL</p>
+                <p>Hesap No: 93465894</p>
+                <p>Şube: WEB - 3663</p>
+                <p>IBAN: TR61 0011 1000 0000 0093 4658 94</p>
+            </div>
+            <button class="copy-btn" style="background-image: linear-gradient(to right, #f89c1c, #a955a0, #00adee, #98c93c);" data-clipboard="TR61 0011 1000 0000 0093 4658 94">KOPYALA</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.hizliresim.com/68mh1oj.png" alt="Garanti Bank Logo" class="logo">
+            <h2 class="bank-name" style="background-image: linear-gradient(45deg, #146d07, #2ecc71);">Garanti Bank</h2>
+            <div class="info">
+                <p><strong>ENES KOCA</strong></p>
+                <p>Para Birimi: TL</p>
+                <p>Hesap No: 93465894</p>
+                <p>Şube: GARANTİ - 3663</p>
+                <p>IBAN: TR21 0006 2000 5220 0006 6017 84</p>
+            </div>
+            <button class="copy-btn" style="background-color: #146d07;" data-clipboard="TR21 0006 2000 5220 0006 6017 84">KOPYALA</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.hizliresim.com/q58q1nr.png" alt="Papara Logo" class="logo">
+            <h2 class="bank-name" style="background-image: linear-gradient(45deg, #d3445f, #952a8a);">Papara</h2>
+            <div class="info">
+                <p><strong>ENES KOCA</strong></p>
+                <p>Para Birimi: TL</p>
+                <p>Hesap No: 5477334740</p>
+                <p>Şube: PAPARA</p>
+                <p>IBAN: 5477334740</p>
+            </div>
+            <button class="copy-btn" style="background-image: linear-gradient(to right, #d3445f, #952a8a);" data-clipboard="5477334740">KOPYALA</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.hizliresim.com/d3qf1ik.png" alt="Ziraat Bank Logo" class="logo">
+            <h2 class="bank-name" style="background-image: linear-gradient(45deg, #d30b11, #ff4757);">Ziraat Bank</h2>
+            <div class="info">
+                <p><strong>ENES KOCA</strong></p>
+                <p>Para Birimi: TL</p>
+                <p>Hesap No: 93465894</p>
+                <p>Şube: Düzce/Merkez - 81000</p>
+                <p>IBAN: TR84 0001 0090 1004 3081 4050 01</p>
+            </div>
+            <button class="copy-btn" style="background-color: #d30b11;" data-clipboard="TR84 0001 0090 1004 3081 4050 01">KOPYALA</button>
+        </div>
     </div>
-    <div class="card denizbank">
-        <img src="https://i.hizliresim.com/sbaxlo6.png" alt="Denizbank Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 93465894</p>
-        <p>Şube: Düzce/Merkez - 81000</p>
-        <p>IBAN: <span id="denizbankIban">TR54 0013 4000 0223 9092 3000 01</span></p>
-        <button onclick="copyToClipboard('denizbankIban')">KOPYALA</button>
-    </div>
-    <div class="card enpara">
-        <img src="https://i.hizliresim.com/6h7pjq3.png" alt="Enpara Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 93465894</p>
-        <p>Şube: WEB - 3663</p>
-        <p>IBAN: <span id="enparaIban">TR61 0011 1000 0000 0093 4658 94</span></p>
-        <button onclick="copyToClipboard('enparaIban')">KOPYALA</button>
-    </div>
-    <div class="card garanti">
-        <img src="https://i.hizliresim.com/nbfl7tt.png" alt="Garanti Bankası Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 93465894</p>
-        <p>Şube: GARANTİ - 3663</p>
-        <p>IBAN: <span id="garantiIban">TR21 0006 2000 5220 0006 6017 84</span></p>
-        <button onclick="copyToClipboard('garantiIban')">KOPYALA</button>
-    </div>
-    <div class="card ziraat">
-        <img src="https://i.hizliresim.com/5t1m0pt.png" alt="Ziraat Bankası Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 93465894</p>
-        <p>Şube: Düzce/Merkez - 81000</p>
-        <p>IBAN: <span id="ziraatIban">Geçersiz</span></p>
-        <button onclick="copyToClipboard('ziraatIban')">KOPYALA</button>
-    </div>
-      <div class="card papara">
-        <img src="https://i.hizliresim.com/2dahg6a.png" alt="Papara Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: 5477334740</p>
-        <p>Şube: PAPARA</p>
-        <p>NO: <span id="paparaIban">5477334740</span></p>
-        <button onclick="copyToClipboard('paparaIban')">KOPYALA</button>
-    </div>
-      <div class="card ininal">
-        <img src="https://i.hizliresim.com/9vbfcun.png" alt="ininal Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: Yakında...</p>
-        <p>Şube: Düzce</p>
-        <p>NO: <span id="ininalIban">Yakında...</span></p>
-        <button onclick="copyToClipboard('ininalIban')">KOPYALA</button>
-    </div>
-        <div class="card binance">
-        <img src="https://i.hizliresim.com/hs3wpkp.png" alt="binance Logo" class="logo">
-        <p><strong>ENES KOCA</strong></p>
-        <p>Para Birimi: TL</p>
-        <p>Hesap No: Yakında...</p>
-        <p>Şube: Düzce</p>
-        <p>NO: <span id="binanceIban">Yakında...</span></p>
-        <button onclick="copyToClipboard('binanceIban')">KOPYALA</button>
-    </div>
-    <div id="popup" class="popup">Kopyalandı, bizimle çalıştığınız için teşekkür ederiz 😇</div>
-    <script src="script.js"></script>
+
+    <div class="popup" id="popup">Panoya kopyalandı!</div>
+
+    <script>
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const textToCopy = button.getAttribute('data-clipboard');
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    const popup = document.getElementById('popup');
+                    popup.classList.add('show');
+                    setTimeout(() => {
+                        popup.classList.remove('show');
+                    }, 2000);
+                });
+            });
+        });
+    </script>
 </body>
 </html>
