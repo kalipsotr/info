@@ -1,42 +1,694 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled Document</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="https://i.hizliresim.com/t1t6fbq.png">
+    <title>Professional Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        :root {
+            --primary: #008aff;
+            --primary-light: #66b5ff;
+            --primary-dark: #0066cc;
+            --primary-glass: rgba(0, 138, 255, 0.1);
+            --white: #ffffff;
+            --off-white: #f8faff;
+            --light-bg: #f0f7ff;
+            --dark: #1a1a2e;
+            --text: #333344;
+            --text-light: #666677;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--light-bg) 0%, #e6f0ff 100%);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 40px 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23008aff' fill-opacity='0.03'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0H5v5H0v1h5v94h1V6h94V5H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 138, 255, 0.1);
+        }
+        
+        .card {
+            border-radius: 24px;
+            overflow: hidden;
+            background: var(--white);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.08),
+                0 5px 15px rgba(0, 138, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.12),
+                0 10px 25px rgba(0, 138, 255, 0.2);
+        }
+        
+        .profile-header {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--primary-dark) 100%);
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .profile-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .profile-header .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+        }
+        
+        .profile-header .wave svg {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            fill: var(--white);
+        }
+        
+        .profile-section {
+            display: flex;
+            padding: 40px;
+            position: relative;
+            margin-top: -80px;
+        }
+        
+        .profile-image-container {
+            position: relative;
+            margin-right: 40px;
+        }
+        
+        .profile-image-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.2),
+                0 5px 15px rgba(0, 0, 0, 0.1);
+            transform: rotate(-5deg);
+            transition: all 0.5s ease;
+            z-index: 2;
+        }
+        
+        .card:hover .profile-image-wrapper {
+            transform: rotate(0deg) translateY(-10px);
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .profile-image-wrapper:hover .profile-image {
+            transform: scale(1.1);
+        }
+        
+        .profile-image-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(0, 138, 255, 0.2),
+                rgba(0, 0, 0, 0.4)
+            );
+            z-index: 1;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        
+        .profile-image-wrapper:hover::before {
+            opacity: 0.3;
+        }
+        
+        .profile-image-decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 20px;
+            border: 2px dashed var(--primary);
+            top: 15px;
+            left: 15px;
+            z-index: 1;
+            transform: rotate(5deg);
+            transition: all 0.5s ease;
+        }
+        
+        .card:hover .profile-image-decoration {
+            transform: rotate(0deg) translate(5px, -5px);
+        }
+        
+        .profile-description {
+            flex: 1;
+            padding-top: 40px;
+            position: relative;
+        }
+        
+        .profile-title {
+            margin-bottom: 30px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .profile-name {
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+        
+        .profile-name span {
+            margin-left: 15px;
+            font-size: 32px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            position: relative;
+            top: -2px;
+        }
+        
+        .profile-name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 40px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .profile-role {
+            font-size: 18px;
+            color: var(--text-light);
+            font-weight: 500;
+            position: relative;
+            padding-left: 25px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        
+        .profile-role::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 15px;
+            height: 2px;
+            background-color: var(--primary);
+            transform: translateY(-50%);
+        }
+        
+        .profile-description p {
+            margin-bottom: 20px;
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-light);
+            position: relative;
+            padding-left: 25px;
+            border-left: 3px solid var(--primary);
+        }
+        
+        .buttons-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 50px 0;
+            padding: 0 20px;
+        }
+        
+        .service-button {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 25px;
+            text-decoration: none;
+            color: var(--text);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                0 5px 15px rgba(0, 138, 255, 0.05);
+        }
+        
+        .service-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .service-button:hover {
+            color: var(--white);
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 10px 25px rgba(0, 138, 255, 0.2);
+        }
+        
+        .service-button:hover::before {
+            transform: translateY(0);
+        }
+        
+        .service-button:hover .service-title,
+        .service-button:hover .service-info div:last-child {
+            color: var(--white);
+        }
+        
+        .service-icon-wrapper {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin-right: 25px;
+            border-radius: 16px;
+            background: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.05),
+                0 5px 15px rgba(0, 138, 255, 0.1);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            z-index: 2;
+        }
+        
+        .service-button:hover .service-icon-wrapper {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(10deg);
+        }
+        
+        .service-button:hover .service-icon {
+            transform: scale(1.2);
+        }
+        
+        .service-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .service-button:hover .service-icon-wrapper::after {
+            opacity: 1;
+            animation: rotate 10s linear infinite;
+        }
+        
+        .service-info {
+            flex: 1;
+        }
+        
+        .service-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+        
+        .service-info div:last-child {
+            font-size: 15px;
+            transition: color 0.3s;
+            line-height: 1.5;
+        }
+        
+        .social-section {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.05),
+                0 5px 15px rgba(0, 138, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            margin: 0 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .social-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 138, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            animation: rotate 15s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 15px 30px;
+            border-radius: 50px;
+            background: var(--white);
+            box-shadow: 
+                0 10px 20px rgba(0, 0, 0, 0.05),
+                0 5px 15px rgba(0, 138, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            z-index: -1;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.1),
+                0 10px 25px rgba(0, 138, 255, 0.2);
+            color: var(--white);
+        }
+        
+        .social-link:hover::before {
+            transform: translateY(0);
+        }
+        
+        .social-link i {
+            margin-right: 12px;
+            font-size: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .social-link:hover i {
+            transform: scale(1.2);
+        }
+        
+        .decorative-circle {
+            position: fixed;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            opacity: 0.1;
+            z-index: -1;
+        }
+        
+        .circle-1 {
+            width: 400px;
+            height: 400px;
+            top: -200px;
+            right: -200px;
+        }
+        
+        .circle-2 {
+            width: 600px;
+            height: 600px;
+            bottom: -300px;
+            left: -300px;
+        }
+        
+        .floating {
+            animation: floating 6s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @media (max-width: 1100px) {
+            .buttons-section {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .profile-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                margin-top: -100px;
+                padding: 30px 20px;
+            }
+            
+            .profile-image-container {
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .profile-title {
+                text-align: center;
+                display: block;
+            }
+            
+            .profile-name {
+                justify-content: center;
+            }
+            
+            .profile-name::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .profile-role {
+                padding-left: 0;
+                display: block;
+                margin-top: 15px;
+            }
+            
+            .profile-role::before {
+                display: none;
+            }
+            
+            .profile-description p {
+                padding-left: 0;
+                border-left: none;
+                padding-top: 20px;
+                border-top: 3px solid var(--primary);
+                text-align: left;
+            }
+            
+            .social-section {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .profile-image-wrapper,
+            .profile-image-decoration {
+                width: 160px;
+                height: 160px;
+            }
+            
+            .profile-section {
+                padding: 20px 15px;
+            }
+            
+            .profile-name {
+                font-size: 28px;
+            }
+            
+            .profile-name span {
+                font-size: 24px;
+            }
+            
+            .service-button {
+                padding: 20px;
+            }
+            
+            .service-icon-wrapper {
+                width: 60px;
+                height: 60px;
+                margin-right: 15px;
+            }
+            
+            .service-icon {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .service-title {
+                font-size: 16px;
+            }
+            
+            .service-info div:last-child {
+                font-size: 13px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Buraya içerik ekleyebilirsiniz -->
+    <div class="decorative-circle circle-1 floating"></div>
+    <div class="decorative-circle circle-2"></div>
     
-<div class="container">
-  <div class="card">
-      <div class="loader">
-      <svg viewBox="0 0 80 80">
-          <circle id="test" cx="40" cy="40" r="32"></circle>
-      </svg>
-  </div>
-
-  <div class="loader triangle">
-      <svg viewBox="0 0 86 80">
-          <polygon points="43 8 79 72 7 72"></polygon>
-      </svg>
-  </div>
-
-  <div class="loader">
-      <svg viewBox="0 0 80 80">
-          <rect x="8" y="8" width="64" height="64"></rect>
-      </svg>
-  </div>
-      <h2>YAKINDA...</h2>
-  </div>
-</div>
-    
-    <!-- İçerik burada sonlanır -->
-  
+    <div class="container">
+        <div class="card">
+            <div class="profile-header">
+            </div>
+            <div class="profile-section">
+                <div class="profile-image-container">
+                    <div class="profile-image-wrapper">
+                        <img src="https://i.hizliresim.com/blechpz.jpg" alt="Profil Fotoğrafı" class="profile-image">
+                    </div>
+                    <div class="profile-image-decoration"></div>
+                </div>
+                <div class="profile-description">
+                    <div class="profile-title">
+                        <h1 class="profile-name">kalipsotr</h1>
+                        <div class="profile-role">Backend & UI/UX Designer</div>
+                    </div>
+                    <p>Hedefim; yenilikçi, kalite odaklı ve profesyonel bir hizmet sunmak, doğru stratejiler geliştirerek hedef kitlelere ulaşmak ve vazgeçilmez bir çözüm ortağı olarak yüksek düzeyde müşteri memnuniyeti sağlamaktır.</p>
+                    <p>Tasarımcı olarak her çalışmamı, deneyimlerimin getirdiği özgüven ve titizlik ile yapar, yeni bir projeye başlamanın sevinci ile hareket ederim.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons-section">
+            <a href="https://www.r10.net/bot-program-alis-satisi/4061272-bilgisayarinizi-telefondan-kontrol-edin-129302-ktr-bilgisayar-yonetimi-9889-yayinda-12842165039-a.html" class="service-button">
+                <div class="service-icon-wrapper">
+                    <img src="https://i.hizliresim.com/l23yyp9.png" alt="KTR Icon" class="service-icon">
+                </div>
+                <div class="service-info">
+                    <div class="service-title">Bilgisayarınızı Telefondan Kontrol Edin! 🤖</div>
+                    <div>KTR | BİLGİSAYAR YÖNETİMİ ⚡ YAYINDA! 🖥️</div>
+                </div>
+            </a>
+            
+            <a href="https://www.r10.net/grafik-tasarimcilar/2287552-11088-en-uygun-fiyat-ve-en-hizli-teslim-garantisi-129351-logo-banner-konu-brosor-post-story-kalipsotr-11088-a.html" class="service-button">
+                <div class="service-icon-wrapper">
+                    <img src="https://i.hizliresim.com/8qjchpf.png" alt="Design Icon" class="service-icon">
+                </div>
+                <div class="service-info">
+                    <div class="service-title">⭐ EN UYGUN FİYAT ve EN HIZLI TESLİM GARANTİSİ! 🥇</div>
+                    <div>LOGO-BANNER-KONU-BROŞÖR-POST-STORY | kalipsotr ⭐</div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="social-section">
+            <a href="https://www.instagram.com/kalipsotr/" class="social-link">
+                <i class="fab fa-instagram"></i>
+                Instagram
+            </a>
+            <a href="https://wa.me/905531858908" class="social-link">
+                <i class="fab fa-whatsapp"></i>
+                WhatsApp
+            </a>
+        </div>
+    </div>
 </body>
 </html>
-
-
-
